@@ -1,9 +1,9 @@
-import unittest
+from django.test import TestCase
 from django.core.exceptions import ValidationError
 from api.categoriainsumos.models import CategoriaInsumo
 from api.insumos.models import Insumo
 
-class InsumoTestCase(unittest.TestCase):
+class InsumoTestCase(TestCase):
 
     @classmethod
     def setUpTestData(cls):

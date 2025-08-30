@@ -1,9 +1,9 @@
-import unittest
+from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import check_password
 from api.manicuristas.models import Manicurista
 
-class ManicuristaTestCase(unittest.TestCase):
+class ManicuristaTestCase(TestCase):
 
     def setUp(self):
         self.manicurista_data = {

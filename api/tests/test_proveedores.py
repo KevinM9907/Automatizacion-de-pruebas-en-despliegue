@@ -1,8 +1,8 @@
-import unittest
+from django.test import TestCase
 from django.core.exceptions import ValidationError
 from api.proveedores.models import Proveedor
 
-class ProveedorTestCase(unittest.TestCase):
+class ProveedorTestCase(TestCase):
 
     def setUp(self):
         self.proveedor_data = {

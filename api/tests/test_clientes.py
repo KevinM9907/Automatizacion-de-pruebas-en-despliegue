@@ -1,11 +1,11 @@
-import unittest
+from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import check_password
 from api.clientes.models import Cliente
 from api.roles.models import Rol
 from api.usuarios.models import Usuario
 
-class ClienteTestCase(unittest.TestCase):
+class ClienteTestCase(TestCase):
 
     def setUp(self):
         self.cliente_data = {

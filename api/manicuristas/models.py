@@ -88,7 +88,8 @@ class Manicurista(BaseModel):
         print(f"Cambiando contraseña para manicurista {self.id}")
         self.contraseña_temporal = make_password(nueva_contraseña)
         self.debe_cambiar_contraseña = False
-        self.save(update_fields=['contraseña_temporal', 'debe_cambiar_contraseña'])
+        if self.pk:
+            self.save(update_fields=['contraseña_temporal', 'debe_cambiar_contraseña'])
         print(f"Contraseña cambiada. debe_cambiar_contraseña: {self.debe_cambiar_contraseña}")
         
         # También actualizar la contraseña del usuario relacionado si existe

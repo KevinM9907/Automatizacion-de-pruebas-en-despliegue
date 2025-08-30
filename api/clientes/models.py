@@ -62,7 +62,9 @@ class Cliente(BaseModel):
         print(f"Cambiando contraseña para cliente {self.id}")
         self.contraseña_temporal = make_password(nueva_contraseña)
         self.debe_cambiar_contraseña = False
-        self.save(update_fields=['contraseña_temporal', 'debe_cambiar_contraseña'])
+        # Si el objeto aún no tiene PK, no se puede forzar update; solo actualizar en memoria
+        if self.pk:
+            self.save(update_fields=['contraseña_temporal', 'debe_cambiar_contraseña'])
         print(f"Contraseña cambiada. debe_cambiar_contraseña: {self.debe_cambiar_contraseña}")
         
         # También actualizar la contraseña del usuario relacionado si existe
